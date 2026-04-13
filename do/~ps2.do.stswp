@@ -134,8 +134,6 @@ forvalues i = 1/1000{
 	
 	g Y = Y_1*D + Y_0*(1-D)
 	
-	g X = X_1*D + X_0*(1-D)
-	
 	quietly reg Y D
 	
 	frame change measures 
@@ -157,12 +155,10 @@ forvalues i = 1/1000{
 	quietly replace est3 = r(table)[1,1] if _n == `i'
 	
 	frame change default
-	drop random Y X D
+	drop random Y 
 }
 	
-frame change measures 
 
-sum est1 est2 est3
 	
 	
 	
