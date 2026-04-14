@@ -86,7 +86,7 @@ forvalues j = 1/3{
 
 frame change measures
 
-twoway (kdensity est1, ytitle("Density") xtitle("Estimated ATE") legend(label(1 "%Treated = 50%") label(2 "%Treated = 25%") label(3 "%Treated = 25%, Stratified") position(6) cols(3))) (kdensity est2) (kdensity est3) 
+twoway (kdensity est1, ytitle("Density") xtitle("Estimated ATE") legend(label(1 "%Treated = 25%") label(2 "%Treated = 50%") label(3 "%Treated = 25%, Stratified") position(6) cols(3))) (kdensity est2) (kdensity est3) 
 
 graph export "pictures\densities2.png", replace
 
@@ -120,6 +120,8 @@ gen Y_0 = 5*X_0 + eps
 gen IT = Y_1 - Y_0
 
 sum IT
+
+sum tau
 
 frame create measures
 frame change measures 
